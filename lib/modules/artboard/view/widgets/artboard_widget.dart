@@ -11,6 +11,8 @@ const int size = length * width;
 final List<Color> paletteColors = List.generate(
   15,
   (index) => Color.fromARGB(
+
+    
     255,
     Random().nextInt(255),
     Random().nextInt(255),
