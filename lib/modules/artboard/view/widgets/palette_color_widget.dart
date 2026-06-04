@@ -14,22 +14,27 @@ class PaletteColorWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final size = screenWidth < 600 ? 45.0 : 50.0;
+
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 50,
-        height: 50,
+        width: size,
+        height: size,
         decoration: BoxDecoration(
           color: color,
           border: isSelected
               ? Border.all(
                   color: Colors.white,
                   strokeAlign: BorderSide.strokeAlignInside,
-                  width: 4,
+                  width: 3,
                 )
               : null,
         ),
-        child: isSelected ? const Center(child: Icon(Icons.check)) : null,
+        child: isSelected
+            ? const Center(child: Icon(Icons.check, size: 20))
+            : null,
       ),
     );
   }

@@ -7,8 +7,18 @@ class ArtboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Pixel Art')),
-      body: const ArtboardWidget(),
+      appBar: AppBar(title: const Text('Pixel Art'), centerTitle: true),
+      body: SingleChildScrollView(
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            minHeight:
+                MediaQuery.of(context).size.height -
+                AppBar().preferredSize.height -
+                MediaQuery.of(context).padding.top,
+          ),
+          child: const ArtboardWidget(),
+        ),
+      ),
     );
   }
 }
